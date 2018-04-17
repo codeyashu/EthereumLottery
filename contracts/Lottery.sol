@@ -17,7 +17,7 @@ contract Lottery {
         players.push(msg.sender);
     }
     
-    function getPlayers() public view returns (address[]){
+    function getPlayers() public view returns (address[]) {
         return players;
     }
     
@@ -27,7 +27,7 @@ contract Lottery {
     
     function pickWinner() public restricted {
         uint index = random() % players.length;
-        players[index].transfer(this.balance);
+        players[index].transfer((address(this)).balance);
         players = new address[](0);
     }
 
