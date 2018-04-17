@@ -1,1 +1,1 @@
-# EthereumLottery
+Simple Lottery contract using ethereum.
