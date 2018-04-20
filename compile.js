@@ -1,4 +1,4 @@
-// Compiles our solidity file
+// Compiles solidity file
 
 const path = require('path');
 const fs = require('fs');
