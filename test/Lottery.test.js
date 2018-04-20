@@ -13,7 +13,7 @@ beforeEach(async () => {
     accounts = await web3.eth.getAccounts();
     lottery = await new web3.eth.Contract(JSON.parse(interface))
         .deploy({
-            data:bytecode
+            data: bytecode
         })
         .send({
             from: accounts[0], gas: '1000000'
@@ -31,7 +31,7 @@ describe('Lottery Contract', () => {
             value: web3.utils.toWei('0.03', 'ether')
         })
         const players = await lottery.methods.getPlayers().call({
-            from:accounts[0]
+            from: accounts[0]
         });
         assert.equal(accounts[0], players[0])
         assert.equal(1, players.length)
@@ -51,7 +51,7 @@ describe('Lottery Contract', () => {
             value: web3.utils.toWei('0.02', 'ether')
         });
         const players = await lottery.methods.getPlayers().call({
-            from:accounts[0]
+            from: accounts[0]
         });
         assert.equal(accounts[0], players[0])
         assert.equal(accounts[1], players[1])
@@ -66,7 +66,7 @@ describe('Lottery Contract', () => {
                 value: 200
             });
             assert(false);
-        }   catch (err) {
+        } catch (err) {
             assert(err);
         }
     });
@@ -76,7 +76,7 @@ describe('Lottery Contract', () => {
                 from: accounts[1],
             });
             assert(false);
-        }   catch (err) {
+        } catch (err) {
             assert(err);
         }
     });
@@ -94,7 +94,7 @@ describe('Lottery Contract', () => {
         const difference = finalBalance - initialBalance;
         assert(difference > web3.utils.toWei('1.8', 'ether'));
         const players = await lottery.methods.getPlayers().call({
-            from:accounts[0]
+            from: accounts[0]
         });
         assert.equal(0, players.length);
     });
