@@ -1,3 +1,5 @@
+// To test the lottery contract using mocha
+
 const assert = require('assert');
 const ganache = require('ganache-cli');
 const Web3 = require('web3');
@@ -24,6 +26,10 @@ describe('Lottery Contract', () => {
     });
 
     it('allows one account to enter', async () => {
+        await lottery.methods.enter().send({
+            from: accounts[0],
+            value: web3.utils.toWei('0.03', 'ether')
+        })
         const players = await lottery.methods.getPlayers().call({
             from:accounts[0]
         });

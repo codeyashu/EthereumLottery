@@ -4,10 +4,11 @@ const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('web3');
 const {interface, bytecode } = require('./compile');
 
-// Provider requires metamask mnemonic and a node in the network. Here infura is used.
+// Provider requires metamask mnemonic and a node in the network.
+// Here infura is used. Sign up at infura.io
 const provider = new HDWalletProvider(
     'unusual donor select sell raccoon office chapter miracle damage razor success become',
-    'https://rinkeby.infura.io/mtFwL2yHZw0Vg9DawLnw' 
+    'https://rinkeby.infura.io/mtFwL2yHZw0Vg9DawLnw'
 );
 
 const web3 = new Web3(provider);
@@ -27,7 +28,7 @@ const deploy = async () => {
 
         //Details required to work with contract
         console.log(result);
-        console.log(--------------------);
+        console.log("--------------------");
         //Interface and contract address required for web3 in the server
         console.log(interface);
         console.log('Contract deployed to ', result.options.address);
